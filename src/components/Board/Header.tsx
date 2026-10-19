@@ -1,0 +1,54 @@
+import type { Dispatch, SetStateAction } from "react";
+import { getPlayerColor, offColor, type PlayerDetails, type Players } from "../../shared/utils";
+import Button from "../../UI/Button";
+import PlayerPIll from "../../UI/PlayerPill";
+
+
+const Header = ({activePlayer, info, setInfo}: {
+    activePlayer: Players,
+    info: PlayerDetails,
+    setInfo: Dispatch<SetStateAction<PlayerDetails>>
+}) => {
+    const playerXColor = activePlayer == 'x' ? getPlayerColor("x") : offColor;
+    const playerOColor = activePlayer == 'o' ? getPlayerColor("o") : offColor;
+    const onPlayerNameChange = () => {
+
+    }
+
+    return ( 
+        <div className="flex gap-16">
+            <Button
+                onClick={() => onPlayerNameChange}
+                height="130px"
+                width="250px"
+                bgColor={playerXColor}
+                border="50px"
+                fontSize="32px"
+            >
+                <PlayerPIll
+                    player="x" 
+                    info={info}
+                    setInfo={setInfo}
+                    textColor={playerXColor}
+                />
+            </Button>
+            <Button
+                onClick={onPlayerNameChange}
+                height="130px"
+                width="250px"
+                bgColor={playerOColor}
+                border="50px"
+                fontSize="32px"
+            >
+                <PlayerPIll
+                    player="o"
+                    info={info}
+                    setInfo={setInfo}
+                    textColor={playerOColor}
+                />
+            </Button>
+        </div>
+    );
+}
+ 
+export default Header;
