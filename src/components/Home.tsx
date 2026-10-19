@@ -37,8 +37,9 @@ const Home = ({startHandler} : {
                 height="99px"
                 width="365px"
                 fontSize="32px" 
-                bgColor="#E7C027" 
+                bgColor="#fcf4e7" 
                 border="50px"
+                textColor="black"
                 onClick={startHandler}
             >🥊 Throw Hands 👊
             </Button>
