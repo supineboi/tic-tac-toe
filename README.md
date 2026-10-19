@@ -1,61 +1,137 @@
-# Tic Tac Toe
+# 🎮 Tic-Tac-Toe: Throw Hands
 
-A playful, local two-player tic-tac-toe game built with React and TypeScript. Choose your names, take turns on the board, and keep score across rounds.
+A playful two-player Tic-Tac-Toe game built with React and TypeScript. Challenge a friend on the same device, customize player names, and keep score through multiple rounds, with game-themed music and a custom cursor.
 
-## Features
+<!-- Add your deployed website URL when available. -->
+<!-- [🎮 Live Demo](YOUR_DEPLOYED_URL) -->
 
-- Two-player, same-device gameplay
-- Editable player names and live score tracking
-- Automatic turn switching and win detection across rows, columns, and diagonals
-- Draw detection, round reset, and next-round controls
-- Optional looping game music and custom cursor effects
+## 📸 Screenshots
 
-## Tech Stack
+### Home Page
+![Tic-Tac-Toe home page](./src/assets/screenshots/home-page.png)
 
-- React 19 and TypeScript
-- Vite 8
-- Tailwind CSS 4
-- Oxlint
+### Gameplay
+![Tic-Tac-Toe gameplay board](./src/assets/screenshots/play-board.png)
 
-## Getting Started
+### Winner Screen
+![Tic-Tac-Toe winner overlay](./src/assets/screenshots/win-overlay.png)
 
-Install [Node.js](https://nodejs.org/) and npm, then run:
+### Draw Screen
+![Tic-Tac-Toe draw overlay](./src/assets/screenshots/draw-overlay.png)
 
-```bash
-git clone <your-repository-url>
-cd tic-tac-toe
-npm install
-npm run dev
-```
+## ✨ Features
 
-Open the local URL printed by Vite to play. Replace `<your-repository-url>` with the URL of your Git repository.
+- 🎯 Interactive Tic-Tac-Toe gameplay for two players on one device
+- 🏆 Automatic win and draw detection
+- 📊 Score tracking across rounds
+- ✏️ Editable player names, limited to 10 characters
+- 🖱️ Custom cursor that reflects the active player
+- 🎵 Optional looping background music with mute/unmute control
+- 🔄 Reset the current round or start the next round
+- 🎨 Custom game-themed visuals and player colors
 
-## Available Scripts
+## 🛠️ Tech Stack
 
-| Command | Description |
-| --- | --- |
-| `npm run dev` | Start the Vite development server |
-| `npm run build` | Type-check the app and create a production build in `dist/` |
-| `npm run preview` | Preview the production build locally |
-| `npm run lint` | Run Oxlint |
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-## How to Play
+- **React 19** for the user interface
+- **TypeScript** for typed components and game state
+- **Tailwind CSS 4** for styling
+- **GSAP** and **@gsap/react** for custom cursor movement
+- **Vite** for development and production builds
+- **Oxlint** for linting
 
-1. Select **Throw Hands** to start a game.
-2. Enter player names in the score panels; names are limited to 10 characters.
-3. Players take turns marking an empty square. The first to connect three marks horizontally, vertically, or diagonally wins the round.
-4. A full board without a winner is a draw. Start the next round to keep playing, or reset the current board while the round is in progress.
+## 🚀 Getting Started
 
-## Project Structure
+### Prerequisites
+
+Install [Node.js](https://nodejs.org/) and npm.
+
+### Installation
+
+1. Clone the repository:
+
+	```bash
+	git clone YOUR_REPOSITORY_URL
+	```
+
+2. Move into the project directory:
+
+	```bash
+	cd tic-tac-toe
+	```
+
+3. Install dependencies and start the development server:
+
+	```bash
+	npm install
+	npm run dev
+	```
+
+4. Open the local URL printed in your terminal.
+
+## 🎲 How to Play
+
+1. Select **Throw Hands** to begin.
+2. Set player names in the score panels.
+3. Take turns placing marks in empty squares. Connect three in a row, column, or diagonal to win.
+4. When the board fills with no winner, the round ends in a draw. Choose the next-round option to keep playing.
+
+## 📁 Project Structure
 
 ```text
 src/
+├── assets/
+│   ├── screenshots/       # README gameplay screenshots
+│   ├── icons.tsx
+│   └── tic-tac-anthem.mp3
 ├── components/
-│   ├── Board/       # Board, player panels, round controls, and result overlay
-│   └── Home.tsx     # Start screen and music toggle
-├── hook/            # Custom cursor behavior
-├── shared/          # Shared game types and utilities
-├── UI/              # Reusable buttons and player score panel
-└── App.tsx          # App-level screen state
-public/              # Static images and favicon
+│   ├── Board/             # Board, player panels, controls, and result overlays
+│   └── Home.tsx           # Start screen and music control
+├── hook/
+│   └── useCustomCursor.tsx
+├── shared/
+│   └── utils.ts
+├── UI/                    # Reusable buttons and player panel
+├── App.tsx
+├── App.css
+├── index.css
+└── main.tsx
+public/
+├── bg-image.png
+└── logo.png
 ```
+
+## 📜 Available Scripts
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Start the development server |
+| `npm run build` | Type-check and build the production app in `dist/` |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run Oxlint |
+
+## 🧠 What I Learned
+
+- Sharing state across React components with typed props
+- Modeling turn-based game state and player scores
+- Checking winning patterns and detecting draws
+- Integrating GSAP with React refs for a custom cursor
+- Organizing a small app into reusable components and hooks
+
+## 🔮 Future Improvements
+
+- Add a single-player mode with an AI opponent
+- Support online multiplayer
+- Add sound effects for moves and round results
+- Introduce more themes and animations
+
+## 🤝 Contributing
+
+Suggestions and improvements are welcome. Fork the repository and open a pull request with your changes.
+
+## 📄 License
+
+No license is currently included in this repository. Add a `LICENSE` file to specify how others may use, modify, and distribute the project.
