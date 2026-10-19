@@ -3,7 +3,8 @@ export type GameState = "play" | "won" | "draw"
 
 export interface Details {
     name: string,
-    points: number
+    points: number,
+    positions: number[]
 }
 
 export type PlayerDetails = Record<Players, Details>

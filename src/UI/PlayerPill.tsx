@@ -22,7 +22,7 @@ const PlayerPIll = ({
             return
         }
 
-        setInfo(prevState => ({
+        setInfo( prevState => ({
             ...prevState,
             [player]: {
                 ...prevState[player],
@@ -34,7 +34,7 @@ const PlayerPIll = ({
     const onBlurHandler = (event: ChangeEvent<HTMLInputElement>) => {
         const name = event.target.value
         if(!name || !name.trim()){
-            setInfo(prevState => ({
+            setInfo( prevState => ({
                 ...prevState,
                 [player]: {
                     ...prevState[player],

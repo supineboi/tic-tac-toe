@@ -4,11 +4,6 @@ import { type GameState, type PlayerDetails, type Players } from "../../shared/u
 import Main from "./Main";
 import Footer from "./Footer";
 
-interface PlayerPositions {
-    x: number[],
-    o: number[]
-}
-
 type WinningPatterns = number[][]
 
 const winningPatterns: WinningPatterns= [
@@ -27,23 +22,20 @@ const Board = ({onChangeCursor, onEndHandler} : {
     onEndHandler: () => void
 }) => {
     const [gameState, setGameState] = useState<GameState>("play");
-    const [info, setInfo] = useState<PlayerDetails>({
+    const [playerDetails, setPlayerDetails] = useState<PlayerDetails>({
         x: {
             name: "Player - I",
-            points: 0
+            points: 0,
+            positions: []
         },
         o: {
             name: "Player - II",
-            points: 0
+            points: 0,
+            positions: []
         }
     });
-    const initialPlayerPos: Record<Players, number[]> = {
-        x: [],
-        o: []
-    }
-    
-    const [playerPositions, setPlayerPositions] = useState<PlayerPositions>(initialPlayerPos);
-    const totalOccupiedPos = playerPositions.x.length + playerPositions.o.length;
+
+    const totalOccupiedPos = playerDetails.x.positions.length + playerDetails.o.positions.length;
     const activePlayer: Players = totalOccupiedPos%2 === 0 ? 'x' : 'o';
     const isNonOccupied = !totalOccupiedPos
     const [reset, setReset] = useState<number>(0);
@@ -52,22 +44,25 @@ const Board = ({onChangeCursor, onEndHandler} : {
         index: number, 
         player: Players
     ) => {
-        const positions = {
-            ...playerPositions,
-            [player]: [
-                ...playerPositions[player],
-                index
-            ]
+        const details = {
+            ...playerDetails,
+            [player]: {
+                ...playerDetails[player],
+                positions: [
+                    ...playerDetails[player].positions,
+                    index
+                ]
+            }
         }
         const winner = winningPatterns.some(
             pattern => pattern.every(
-                box => positions[player].includes(box)
+                box => details[player].positions.includes(box)
             )
         )
 
         if(winner){
             setGameState("won")
-            setInfo( prevState => ({
+            setPlayerDetails( prevState => ({
                 ...prevState,
                 [player]: {
                     ...prevState[player],
@@ -77,27 +72,39 @@ const Board = ({onChangeCursor, onEndHandler} : {
             return
         }
 
-        const totalOccupiedPos = [
-            ...positions.x,
-            ...positions.o
-        ]
-
-        if(totalOccupiedPos.length === 9){
+        if((totalOccupiedPos + 1) === 9){
             setGameState("draw")
             return
         }
-
-        setPlayerPositions(positions)
+        setPlayerDetails(details)
     }
 
     const onResetHandler = () => {
         setReset(prevState => prevState + 1);
-        setPlayerPositions(initialPlayerPos)
+        setPlayerDetails( prevState => ({
+            x: {
+                ...prevState.x,
+                positions: []
+            },
+            o: {
+                ...prevState.x,
+                positions: []
+            }
+        }))
     }
 
     const onNextHandler = () => {
         setGameState("play")
-        setPlayerPositions(initialPlayerPos)
+        setPlayerDetails( prevState => ({
+            x: {
+                ...prevState.x,
+                positions: []
+            },
+            o: {
+                ...prevState.x,
+                positions: []
+            }
+        }))
         onResetHandler()
     }
 
@@ -105,12 +112,12 @@ const Board = ({onChangeCursor, onEndHandler} : {
         <>
             <Header 
                 activePlayer={activePlayer}
-                info={info}
-                setInfo={setInfo}
+                playerDetails={playerDetails}
+                setPlayerDetails={setPlayerDetails}
             />
             <Main 
                 gameState={gameState}
-                playerInfo={info[activePlayer]}
+                playerInfo={playerDetails[activePlayer]}
                 player={activePlayer} 
                 reset={reset} 
                 onPlayerChange={onPlayerHandler} 

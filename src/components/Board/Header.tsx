@@ -4,10 +4,10 @@ import Button from "../../UI/Button";
 import PlayerPIll from "../../UI/PlayerPill";
 
 
-const Header = ({activePlayer, info, setInfo}: {
+const Header = ({activePlayer, playerDetails, setPlayerDetails}: {
     activePlayer: Players,
-    info: PlayerDetails,
-    setInfo: Dispatch<SetStateAction<PlayerDetails>>
+    playerDetails: PlayerDetails,
+    setPlayerDetails: Dispatch<SetStateAction<PlayerDetails>>
 }) => {
     const playerXColor = activePlayer == 'x' ? getPlayerColor("x") : colorPanel.lite;
     const playerOColor = activePlayer == 'o' ? getPlayerColor("o") : colorPanel.lite;
@@ -27,8 +27,8 @@ const Header = ({activePlayer, info, setInfo}: {
             >
                 <PlayerPIll
                     player="x" 
-                    info={info}
-                    setInfo={setInfo}
+                    info={playerDetails}
+                    setInfo={setPlayerDetails}
                     textColor={playerXColor}
                 />
             </Button>
@@ -42,8 +42,8 @@ const Header = ({activePlayer, info, setInfo}: {
             >
                 <PlayerPIll
                     player="o"
-                    info={info}
-                    setInfo={setInfo}
+                    info={playerDetails}
+                    setInfo={setPlayerDetails}
                     textColor={playerOColor}
                 />
             </Button>
