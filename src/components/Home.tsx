@@ -8,6 +8,7 @@ const Home = ({startHandler} : {
     startHandler: () => void
 }) => {
     const [isMute, setIsMute] = useState<boolean>(true);
+    
     const audioRef = useRef<HTMLAudioElement>(null);
 
     const onClickHandler = async () => {

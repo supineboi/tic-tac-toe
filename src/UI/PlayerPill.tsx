@@ -12,9 +12,13 @@ const PlayerPIll = ({
     setInfo: Dispatch<SetStateAction<PlayerDetails>>,
     textColor: string
 }) => {
-    const playerInfo = info[player];
     const inputRef = useRef<HTMLInputElement>(null);
+    
+    const playerInfo = info[player];
 
+    const onClickHandler = () => {
+        inputRef.current?.focus()
+    }
     const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         const newName = event.target.value;
 
@@ -30,7 +34,6 @@ const PlayerPIll = ({
             }
         }))
     }
-
     const onBlurHandler = (event: ChangeEvent<HTMLInputElement>) => {
         const name = event.target.value
         if(!name || !name.trim()){
@@ -46,7 +49,10 @@ const PlayerPIll = ({
 
     return ( 
         <>
-            <span className="flex flex-col justify-center items-center">
+            <div 
+                className="flex flex-col justify-center items-center"
+                onClick={() => onClickHandler()}
+            >
                 <span className="flex justify-center items-center gap-4">
                     <input 
                         ref={inputRef}
@@ -62,7 +68,7 @@ const PlayerPIll = ({
                         color: textColor
                     }}
                 >{playerInfo.points}</span>
-            </span>
+            </div>
         </>
      );
 }

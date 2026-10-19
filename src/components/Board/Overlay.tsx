@@ -43,13 +43,16 @@ const Overlay = ({
             </div>
 
             <button
-                className="px-5 mt-2 rounded-full shadow-[2px_2px_5px_black] text-black"
+                className="px-5 mt-2 rounded-full shadow-[2px_2px_5px_black]"
                 onClick={onClickHandler}
                 style={{
                     backgroundColor: gameState === 'won'
                         ? player === 'o' ? getPlayerColor('x')
                         : getPlayerColor('o')
-                        : colorPanel.lite
+                        : colorPanel.lite,
+                    color: gameState === 'won'
+                        ? "white"
+                        : "black"
                 }}
             >
                 One More!

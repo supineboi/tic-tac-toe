@@ -34,11 +34,11 @@ const Board = ({onChangeCursor, onEndHandler} : {
             positions: []
         }
     });
+    const [reset, setReset] = useState<number>(0);
 
     const totalOccupiedPos = playerDetails.x.positions.length + playerDetails.o.positions.length;
     const activePlayer: Players = totalOccupiedPos%2 === 0 ? 'x' : 'o';
     const isNonOccupied = !totalOccupiedPos
-    const [reset, setReset] = useState<number>(0);
 
     const onPlayerHandler  =  (
         index: number, 
@@ -78,7 +78,6 @@ const Board = ({onChangeCursor, onEndHandler} : {
         }
         setPlayerDetails(details)
     }
-
     const onResetHandler = () => {
         setReset(prevState => prevState + 1);
         setPlayerDetails( prevState => ({
@@ -87,12 +86,11 @@ const Board = ({onChangeCursor, onEndHandler} : {
                 positions: []
             },
             o: {
-                ...prevState.x,
+                ...prevState.o,
                 positions: []
             }
         }))
     }
-
     const onNextHandler = () => {
         setGameState("play")
         setPlayerDetails( prevState => ({
@@ -101,7 +99,7 @@ const Board = ({onChangeCursor, onEndHandler} : {
                 positions: []
             },
             o: {
-                ...prevState.x,
+                ...prevState.o,
                 positions: []
             }
         }))

@@ -11,9 +11,8 @@ const Header = ({activePlayer, playerDetails, setPlayerDetails}: {
 }) => {
     const playerXColor = activePlayer == 'x' ? getPlayerColor("x") : colorPanel.lite;
     const playerOColor = activePlayer == 'o' ? getPlayerColor("o") : colorPanel.lite;
-    const onPlayerNameChange = () => {
-
-    }
+    
+    const onPlayerNameChange = () => {}
 
     return ( 
         <div className="flex gap-16">

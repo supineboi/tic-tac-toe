@@ -17,11 +17,9 @@ const Main = ({ gameState, player, playerInfo, reset, onNext, onPlayerChange, on
         const cursorSymbol = player === 'x' ? "o" : "x"
         onChangeCursor(cursorSymbol)
     }
-    
     const onMouseEnterHandler = () => {
         onChangeCursor(player)
     }
-    
     const onMouseLeaveHandler = () => {
         onChangeCursor(null)
     }

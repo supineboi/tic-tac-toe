@@ -7,11 +7,10 @@ const useCustomCursor = () => {
 
     useGSAP( () => {
         const handleMouseMove = (dets: MouseEvent) => {
-            gsap.to(cursorRef.current, {
-                x: dets.x - 20,
-                y: dets.y - 20,
-                duration: 0
-            })
+            gsap.set(cursorRef.current, {
+                x: dets.clientX - 20,
+                y: dets.clientY - 20,
+            });
         }
         document.body?.addEventListener("mousemove", handleMouseMove)
 

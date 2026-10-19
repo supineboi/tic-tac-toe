@@ -8,6 +8,7 @@ import { colorPanel, getPlayerColor, type Players } from './shared/utils';
 function App() {
   const [isStart, setIsStart] = useState<boolean>(false)
   const [cursorSymbol, setCursorSymbol] = useState<Players | null>(null);
+  
   const cursorRef = useCustomCursor();
 
   return (

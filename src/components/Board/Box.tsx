@@ -44,6 +44,8 @@ const Box = ({index, player, reset, onPlayerChange}: {
     reset: number,
     onPlayerChange: ( index: number, player: Players) => void
 }) => {
+    const [activePlayer, setActivePlayer] = useState<Players>();
+
     let applyClasses = 'flex justify-center items-center '
     let styles: Partial<Record<Border, string>> = {};
 
@@ -64,16 +66,14 @@ const Box = ({index, player, reset, onPlayerChange}: {
 
     }
 
-    const [activePlayer, setActivePlayer] = useState<Players>();
+    useEffect( () => {
+        setActivePlayer(undefined);
+    }, [reset])
 
     const onClickHandler = () => {
         setActivePlayer(player);
         onPlayerChange(index, player);
     }
-
-    useEffect( () => {
-        setActivePlayer(undefined);
-    }, [reset])
 
     return ( 
         <>
