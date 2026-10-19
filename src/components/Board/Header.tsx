@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from "react";
-import { getPlayerColor, offColor, type PlayerDetails, type Players } from "../../shared/utils";
+import { getPlayerColor, colorPanel, type PlayerDetails, type Players } from "../../shared/utils";
 import Button from "../../UI/Button";
 import PlayerPIll from "../../UI/PlayerPill";
 
@@ -9,8 +9,8 @@ const Header = ({activePlayer, info, setInfo}: {
     info: PlayerDetails,
     setInfo: Dispatch<SetStateAction<PlayerDetails>>
 }) => {
-    const playerXColor = activePlayer == 'x' ? getPlayerColor("x") : offColor;
-    const playerOColor = activePlayer == 'o' ? getPlayerColor("o") : offColor;
+    const playerXColor = activePlayer == 'x' ? getPlayerColor("x") : colorPanel.lite;
+    const playerOColor = activePlayer == 'o' ? getPlayerColor("o") : colorPanel.lite;
     const onPlayerNameChange = () => {
 
     }

@@ -2,6 +2,7 @@ import Button from "../UI/Button";
 import { useRef, useState } from "react";
 import TicTacMusic from '../assets/tic-tac-anthem.mp3'
 import { icons } from "../assets/icons";
+import { colorPanel } from "../shared/utils";
 
 const Home = ({startHandler} : {
     startHandler: () => void
@@ -28,7 +29,11 @@ const Home = ({startHandler} : {
         <>
             <button 
                 onClick={onClickHandler}
-                className="rounded-full border p-2 border-[#E7C027] shadow-[2px_2px_6px_black]"
+                className="rounded-full border p-2 shadow-[2px_2px_6px_black]"
+                style={{
+                    borderColor: colorPanel.dark,
+                    color: colorPanel.dark
+                }}
             >
                 {isMute ? icons.volumeMute : icons.volumeUp}
             </button>
@@ -37,7 +42,7 @@ const Home = ({startHandler} : {
                 height="99px"
                 width="365px"
                 fontSize="32px" 
-                bgColor="#fcf4e7" 
+                bgColor={colorPanel.lite} 
                 border="50px"
                 textColor="black"
                 onClick={startHandler}

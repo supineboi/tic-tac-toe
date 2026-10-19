@@ -8,7 +8,10 @@ export interface Details {
 
 export type PlayerDetails = Record<Players, Details>
 
-export const offColor = "#DFD4D2";
+export const colorPanel = {
+    lite: "#fdf5e7",
+    dark: "#fdc11e"
+}
 
 export const playerColors = {
     x: "#317ED6",

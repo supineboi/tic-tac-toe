@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getPlayerColor, offColor, type Players } from "../../shared/utils";
+import { getPlayerColor, type Players } from "../../shared/utils";
 
 type Position = "top" | "bottom" | "right" | "left";
 type Border = "borderTopColor" | "borderBottomColor" | "borderRightColor" | "borderLeftColor" 
@@ -65,14 +65,8 @@ const Box = ({index, player, reset, onPlayerChange}: {
     }
 
     const [activePlayer, setActivePlayer] = useState<Players>();
-    const [isHover, setIsHover] = useState<boolean>(false);
-
-    const onHoverHandler = (val: boolean) => {
-        setIsHover(val);
-    }
 
     const onClickHandler = () => {
-        setIsHover(false)
         setActivePlayer(player);
         onPlayerChange(index, player);
     }
@@ -87,8 +81,6 @@ const Box = ({index, player, reset, onPlayerChange}: {
                 className={applyClasses}
                 style={styles}
                 {...(!activePlayer && {
-                    onMouseEnter: () => onHoverHandler(true),
-                    onMouseLeave: () => onHoverHandler(false),
                     onClick: () => onClickHandler(),
                 })}
             >

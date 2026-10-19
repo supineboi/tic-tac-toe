@@ -1,4 +1,4 @@
-import { getPlayerColor, offColor, type GameState, type Players } from "../../shared/utils";
+import { colorPanel, getPlayerColor, type GameState, type Players } from "../../shared/utils";
 
 const Overlay = ({
     name,
@@ -19,9 +19,12 @@ const Overlay = ({
             <div
                 className={`w-[80%] flex justify-center items-center flex-col py-10 px-14 rounded-full font-kalam text-white text-2xl leading-12 shadow-[2px_2px_5px_white]`}
                 style={{
-                    backgroundColor: gameState === 'won' 
-                        ? getPlayerColor(player)
-                        : offColor 
+                    ...gameState === 'won' 
+                    ? {
+                        backgroundColor: getPlayerColor(player)
+                    } : {
+                        background: `linear-gradient(to right, ${getPlayerColor('x')} 50%, ${getPlayerColor('o')} 50%)`
+                    }
                 }}
             >
             <div>
@@ -40,13 +43,13 @@ const Overlay = ({
             </div>
 
             <button
-                className="px-5 mt-2 rounded-full shadow-[2px_2px_5px_white]"
+                className="px-5 mt-2 rounded-full shadow-[2px_2px_5px_black] text-black"
                 onClick={onClickHandler}
                 style={{
                     backgroundColor: gameState === 'won'
                         ? player === 'o' ? getPlayerColor('x')
                         : getPlayerColor('o')
-                        : "#948989"
+                        : colorPanel.lite
                 }}
             >
                 One More!

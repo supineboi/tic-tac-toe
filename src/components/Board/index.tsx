@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type Dispatch, type SetStateAction } from "react";
 import Header from "./Header";
 import { type GameState, type PlayerDetails, type Players } from "../../shared/utils";
 import Main from "./Main";
@@ -22,7 +22,8 @@ const winningPatterns: WinningPatterns= [
     [2, 4, 6], // Reverse diagonal
 ];
 
-const Board = ({onEndHandler} : {
+const Board = ({onChangeCursor, onEndHandler} : {
+    onChangeCursor: Dispatch<SetStateAction<Players | null>>,
     onEndHandler: () => void
 }) => {
     const [gameState, setGameState] = useState<GameState>("play");
@@ -42,8 +43,9 @@ const Board = ({onEndHandler} : {
     }
     
     const [playerPositions, setPlayerPositions] = useState<PlayerPositions>(initialPlayerPos);
-    const activePlayer = (playerPositions.x.length + playerPositions.o.length)%2 === 0 ? 'x' : 'o';
-    const isUnFill = !playerPositions.x.length &&  !playerPositions.o.length;
+    const totalOccupiedPos = playerPositions.x.length + playerPositions.o.length;
+    const activePlayer: Players = totalOccupiedPos%2 === 0 ? 'x' : 'o';
+    const isNonOccupied = !totalOccupiedPos
     const [reset, setReset] = useState<number>(0);
 
     const onPlayerHandler  =  (
@@ -113,8 +115,10 @@ const Board = ({onEndHandler} : {
                 reset={reset} 
                 onPlayerChange={onPlayerHandler} 
                 onNext={onNextHandler}
+                onChangeCursor={onChangeCursor}
             />
             <Footer 
+                isNonOccupied={isNonOccupied}
                 gameState={gameState}
                 onEnd={onEndHandler} 
                 onReset={onResetHandler} 

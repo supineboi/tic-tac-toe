@@ -1,5 +1,5 @@
 import type {ReactNode} from "react";
-import { offColor } from "../shared/utils";
+import { colorPanel } from "../shared/utils";
 
 interface ButtonType {
     height: string,
@@ -21,7 +21,7 @@ const Button: React.FC<ButtonType> = ({onClick, height, width, fontSize, bgColor
             style={{
                 height: height,
                 width: width,
-                backgroundColor: disabled ? offColor : bgColor,
+                backgroundColor: disabled ? colorPanel.lite : bgColor,
                 borderRadius: border,
                 fontSize: fontSize,
                 ...textColor ? {color: textColor} : {}

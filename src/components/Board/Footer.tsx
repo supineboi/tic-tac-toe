@@ -1,7 +1,8 @@
 import { playerColors, type GameState } from "../../shared/utils";
 import Button from "../../UI/Button";
 
-const Footer = ({gameState, onReset, onEnd} : {
+const Footer = ({isNonOccupied, gameState, onReset, onEnd} : {
+    isNonOccupied: boolean,
     gameState: GameState,
     onReset: () => void,
     onEnd: () => void
@@ -15,7 +16,7 @@ const Footer = ({gameState, onReset, onEnd} : {
                 border="50px"
                 fontSize="32px"
                 onClick={onReset}
-                disabled={gameState !== 'play'}
+                disabled={gameState !== 'play' || isNonOccupied}
             >
                 Reset
             </Button>                
