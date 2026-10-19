@@ -36,6 +36,7 @@ A playful two-player Tic-Tac-Toe game built with React and TypeScript. Challenge
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=white)
+![MIT License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 - **React 19** for the user interface
 - **TypeScript** for typed components and game state
@@ -135,4 +136,4 @@ Suggestions and improvements are welcome. Fork the repository and open a pull re
 
 ## 📄 License
 
-No license is currently included in this repository. Add a `LICENSE` file to specify how others may use, modify, and distribute the project.
+This project is licensed under the [MIT License](./LICENSE).
