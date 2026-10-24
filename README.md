@@ -88,7 +88,7 @@ src/
 ├── assets/
 │   ├── screenshots/       # README gameplay screenshots
 │   ├── icons.tsx
-│   └── tic-tac-anthem.mp3
+│   └── sound.mp3
 ├── components/
 │   ├── Board/             # Board, player panels, controls, and result overlays
 │   └── Home.tsx           # Start screen and music control

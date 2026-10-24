@@ -1,6 +1,6 @@
 import Button from "../UI/Button";
 import { useRef, useState } from "react";
-import TicTacMusic from '../assets/tic-tac-anthem.mp3'
+import TicTacMusic from '../assets/sound.mp3'
 import { icons } from "../assets/icons";
 import { colorPanel } from "../shared/utils";
 
