@@ -43,7 +43,7 @@ const Overlay = ({
             </div>
 
             <button
-                className="px-5 mt-2 rounded-full shadow-[2px_2px_5px_black]"
+                className="px-5 mt-2 rounded-full shadow-[2px_2px_5px_black] hover:brightness-110"
                 onClick={onClickHandler}
                 style={{
                     backgroundColor: gameState === 'won'
