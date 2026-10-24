@@ -21,6 +21,7 @@ const Header = ({activePlayer, playerDetails, setPlayerDetails}: {
                 bgColor={playerXColor}
                 classes={`${commonClasses}`}
                 onClick={() => onPlayerNameChange}
+                disabled={activePlayer === 'o'}
             >
                 <PlayerPIll
                     player="x" 
@@ -33,6 +34,7 @@ const Header = ({activePlayer, playerDetails, setPlayerDetails}: {
                 bgColor={playerOColor}
                 classes={`${commonClasses}`}
                 onClick={onPlayerNameChange}
+                disabled={activePlayer === 'x'}
             >
                 <PlayerPIll
                     player="o"

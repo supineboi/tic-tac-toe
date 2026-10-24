@@ -7,6 +7,7 @@ const Footer = ({isNonOccupied, gameState, onReset, onEnd} : {
     onReset: () => void,
     onEnd: () => void
 }) => {
+
     const commonClasses = 'h-[60px] w-[150px] text-[32px] rounded-[50px]';
     return ( 
         <div className="flex gap-10">
@@ -20,7 +21,7 @@ const Footer = ({isNonOccupied, gameState, onReset, onEnd} : {
             </Button>                
             <Button
                 bgColor={playerColors.o}
-                classes={`${commonClasses}`}
+                classes={`${commonClasses} hover:bg-black`}
                 onClick={onEnd}
             >
                 End

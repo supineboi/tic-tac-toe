@@ -15,7 +15,7 @@ function App() {
     <>
       <div 
           ref={cursorRef} 
-          className='fixed flex justify-center items-center text-6xl font-bold top-0 left-0 pointer-events-none size-14 rounded-full'
+          className='hidden fixed lg:flex justify-center items-center text-6xl font-bold top-0 left-0 pointer-events-none size-14 rounded-full'
           style={{
               ...!cursorSymbol ? {
                 backgroundColor: colorPanel.dark,
