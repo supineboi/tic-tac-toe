@@ -5,6 +5,11 @@
       --font-kalam: "Kalam", cursive;
 }
 
+html, body {
+      margin: 0;
+      padding: 0;
+}
+
 body * {
       cursor: none; 
 }

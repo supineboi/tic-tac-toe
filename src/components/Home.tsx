@@ -30,7 +30,7 @@ const Home = ({startHandler} : {
         <>
             <button 
                 onClick={onClickHandler}
-                className="rounded-full border p-2 shadow-[2px_2px_6px_black]"
+                className="rounded-full border p-2 shadow-[2px_2px_6px_black] hover:brightness-125"
                 style={{
                     borderColor: colorPanel.dark,
                     color: colorPanel.dark

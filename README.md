@@ -19,6 +19,12 @@ A playful two-player Tic-Tac-Toe game built with React and TypeScript. Challenge
 ### Draw Screen
 ![Tic-Tac-Toe draw overlay](./src/assets/screenshots/draw-overlay.png)
 
+## 🎨 Design
+
+Explore the UI design and visual concepts in Figma:
+
+- [🎨 View Figma Design](https://www.figma.com/design/dP9XzSA6ZC4NTs9y3mOC3i/tic-tac-toe?t=T3qD5CX6n3WosCG7-1)
+
 ## ✨ Features
 
 - 🎯 Interactive Tic-Tac-Toe gameplay for two players on one device
@@ -102,7 +108,8 @@ src/
 ├── index.css
 └── main.tsx
 public/
-├── bg-image.png
+├── desktop-bg-image.png
+├── mobile-bg-image.png
 └── logo.png
 ```
 
