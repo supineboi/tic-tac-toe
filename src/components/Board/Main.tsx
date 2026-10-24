@@ -38,7 +38,7 @@ const Main = ({ gameState, player, playerInfo, reset, onNext, onPlayerChange, on
                 <div 
                     onMouseEnter={onMouseEnterHandler}
                     onMouseLeave={onMouseLeaveHandler}
-                    className={`[&>span]:size-37.5  grid grid-cols-3 my-10 [&>span]:shadow-[3px_4px_12px_black] ${gameState !== 'play' ? "opacity-45 pointer-events-none" : ""}`}
+                    className={`[&>span]:size-26 lg:[&>span]:size-37.5  grid grid-cols-3 my-10 [&>span]:shadow-[3px_4px_12px_black] ${gameState !== 'play' ? "opacity-45 pointer-events-none" : ""}`}
                 >
                     {
                         Array.from({ length: 9 }).map((_, index) => (

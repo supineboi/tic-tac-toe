@@ -9,20 +9,18 @@ const Header = ({activePlayer, playerDetails, setPlayerDetails}: {
     playerDetails: PlayerDetails,
     setPlayerDetails: Dispatch<SetStateAction<PlayerDetails>>
 }) => {
+    const commonClasses = 'h-[60px] w-[300px] text-[24px] lg:h-[130px] lg:w-[250px] lg:text-[32px] rounded-[50px]'
     const playerXColor = activePlayer == 'x' ? getPlayerColor("x") : colorPanel.lite;
     const playerOColor = activePlayer == 'o' ? getPlayerColor("o") : colorPanel.lite;
     
     const onPlayerNameChange = () => {}
 
     return ( 
-        <div className="flex gap-16">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-16">
             <Button
-                onClick={() => onPlayerNameChange}
-                height="130px"
-                width="250px"
                 bgColor={playerXColor}
-                border="50px"
-                fontSize="32px"
+                classes={`${commonClasses}`}
+                onClick={() => onPlayerNameChange}
             >
                 <PlayerPIll
                     player="x" 
@@ -32,12 +30,9 @@ const Header = ({activePlayer, playerDetails, setPlayerDetails}: {
                 />
             </Button>
             <Button
-                onClick={onPlayerNameChange}
-                height="130px"
-                width="250px"
                 bgColor={playerOColor}
-                border="50px"
-                fontSize="32px"
+                classes={`${commonClasses}`}
+                onClick={onPlayerNameChange}
             >
                 <PlayerPIll
                     player="o"

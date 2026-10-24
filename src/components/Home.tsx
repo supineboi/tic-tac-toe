@@ -38,14 +38,10 @@ const Home = ({startHandler} : {
             >
                 {isMute ? icons.volumeMute : icons.volumeUp}
             </button>
-            <img src="/logo.png" className="h-[500px] w-[750px]"/>
+            <img src="/logo.png" className="h-[250px] w-[450px] lg:h-[500px] lg:w-[750px]"/>
             <Button
-                height="99px"
-                width="365px"
-                fontSize="32px" 
-                bgColor={colorPanel.lite} 
-                border="50px"
-                textColor="black"
+                bgColor={colorPanel.lite}
+                classes={`h-[50px] w-[260px] text-[24px] lg:h-[99px] lg:w-[356px] lg:text-[32px] rounded-[50px] !text-black`}
                 onClick={startHandler}
             >🥊 Throw Hands 👊
             </Button>

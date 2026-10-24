@@ -50,20 +50,20 @@ const PlayerPIll = ({
     return ( 
         <>
             <div 
-                className="flex flex-col justify-center items-center"
+                className="flex lg:flex-col justify-center items-center"
                 onClick={() => onClickHandler()}
             >
                 <span className="flex justify-center items-center gap-4">
                     <input 
                         ref={inputRef}
-                        className="w-40 mb-2 focus:outline-none" 
+                        className="w-40 mb-2 focus:outline-none text-center" 
                         value={playerInfo.name}
                         onChange={(e) => onChangeHandler(e)}
                         onBlur={(e) => onBlurHandler(e)}
                     />
                 </span>
                 <span 
-                    className="rounded-full bg-white size-12"
+                    className="rounded-full bg-white size-12 flex justify-center items-center"
                     style={{
                         color: textColor
                     }}
