@@ -7,6 +7,7 @@ const Footer = ({isNonOccupied, gameState, onReset, onEnd} : {
     onReset: () => void,
     onEnd: () => void
 }) => {
+    console.log("Footer Component Render")
 
     const commonClasses = 'h-[60px] w-[150px] text-[32px] rounded-[50px]';
     return ( 

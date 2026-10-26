@@ -9,6 +9,8 @@ const Header = ({activePlayer, playerDetails, setPlayerDetails}: {
     playerDetails: PlayerDetails,
     setPlayerDetails: Dispatch<SetStateAction<PlayerDetails>>
 }) => {
+    console.log("Header Component Render")
+    
     const commonClasses = 'h-[60px] w-[300px] text-[24px] lg:h-[130px] lg:w-[250px] lg:text-[32px] rounded-[50px]'
     const playerXColor = activePlayer == 'x' ? getPlayerColor("x") : colorPanel.lite;
     const playerOColor = activePlayer == 'o' ? getPlayerColor("o") : colorPanel.lite;

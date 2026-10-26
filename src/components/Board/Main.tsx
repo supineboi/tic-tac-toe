@@ -12,6 +12,8 @@ const Main = ({ gameState, player, playerInfo, reset, onNext, onPlayerChange, on
     onPlayerChange: (index: number, player: Players) => void,
     onChangeCursor: Dispatch<SetStateAction<Players | null>>
 }) => {
+    console.log("Main Component Render")
+    
     const onChangeHandler = (index: number, player: Players) => {
         onPlayerChange(index, player);
         const cursorSymbol = player === 'x' ? "o" : "x"

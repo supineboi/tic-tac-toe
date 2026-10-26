@@ -1,4 +1,4 @@
-import { useRef, type ChangeEvent, type Dispatch, type SetStateAction } from "react";
+import { useRef, useState, type ChangeEvent, type Dispatch, type SetStateAction } from "react";
 import type { PlayerDetails, Players } from "../shared/utils";
 
 const PlayerPIll = ({
@@ -12,6 +12,14 @@ const PlayerPIll = ({
     setInfo: Dispatch<SetStateAction<PlayerDetails>>,
     textColor: string
 }) => {
+    const playerRomanMap =  {
+        x: "I",
+        o: "II"
+    }
+    const [playerName, setPlayerName] = useState<string>(
+        `Player - ${playerRomanMap[player]}`
+    );
+
     const inputRef = useRef<HTMLInputElement>(null);
     
     const playerInfo = info[player];
@@ -25,7 +33,15 @@ const PlayerPIll = ({
         if(newName.length > 10){
             return
         }
-
+        setPlayerName(newName)
+    }
+    const onBlurHandler = () => {
+        let newName = playerName;
+        if(!newName || !newName.trim()) {
+            newName = player == 'x' ? "Player - I" : "Player - II";
+        }
+        console.log("on blur player setting name :: ", newName)
+        setPlayerName(newName)
         setInfo( prevState => ({
             ...prevState,
             [player]: {
@@ -33,18 +49,6 @@ const PlayerPIll = ({
                 name: newName
             }
         }))
-    }
-    const onBlurHandler = (event: ChangeEvent<HTMLInputElement>) => {
-        const name = event.target.value
-        if(!name || !name.trim()){
-            setInfo( prevState => ({
-                ...prevState,
-                [player]: {
-                    ...prevState[player],
-                    name: player == 'x' ? "Player - I" : "Player - II"
-                }
-            }))
-        }
     }
 
     return ( 
@@ -55,11 +59,12 @@ const PlayerPIll = ({
             >
                 <span className="flex justify-center items-center gap-4">
                     <input 
+                        id={`playerName-${player}`}
                         ref={inputRef}
                         className="w-40 mb-2 focus:outline-none text-center" 
-                        value={playerInfo.name}
+                        value={playerName}
                         onChange={(e) => onChangeHandler(e)}
-                        onBlur={(e) => onBlurHandler(e)}
+                        onBlur={onBlurHandler}
                     />
                 </span>
                 <span 
